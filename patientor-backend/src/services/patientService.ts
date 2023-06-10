@@ -5,6 +5,15 @@ const getAllPatients = ():Patient[] => {
     return patients;
 };
 
+const getPatientById = (id: string):Patient => {
+        const patient = patients.find(patient => patient.id === id);
+        if(!patient) {
+            throw new Error("No patient founding matching with id: "+id);
+        }
+        return patient;
+};
+
+
 const getNonSensitivePatients = (): NonSensitivePatient[] => {
     return patients.map(({id,gender,name,dateOfBirth,occupation}) => {
         return {
@@ -18,7 +27,7 @@ const getNonSensitivePatients = (): NonSensitivePatient[] => {
 };
 
 const addPatient = (object: NewPatientEntry): Patient => {
-    const id: string = uuid(); 
+    const id: string = uuid();
     const newPatient: Patient =  {
         id,
         ...object
@@ -31,5 +40,6 @@ const addPatient = (object: NewPatientEntry): Patient => {
 export default {
     getNonSensitivePatients,
     getAllPatients,
-    addPatient
+    addPatient,
+    getPatientById
 };
