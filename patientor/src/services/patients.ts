@@ -31,7 +31,7 @@ const addEntry = async(id: string, object: NewEntry) => {
     return data;
   }catch(e: unknown) {
     if(isAxiosError(e)){
-      throw new Error(e.request.data);
+      throw new Error(e.message);
     }
     console.log(e);
   }

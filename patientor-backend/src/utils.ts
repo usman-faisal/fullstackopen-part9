@@ -21,11 +21,11 @@ const parseText = (text: unknown): string => {
 };
 
 const isNumber = (n: unknown): n is number => {
-    return typeof n === 'string';
+    return typeof n === 'number';
 };
 
 const parseNumber = (number: unknown): number => {
-    if(!number || !isNumber(number)){
+    if(!isNumber(number)){
         throw new Error("invalid or missing number " + number);
     }
     return number;
