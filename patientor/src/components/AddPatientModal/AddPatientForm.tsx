@@ -40,7 +40,7 @@ const AddPatientForm = ({ onCancel, onSubmit }: Props) => {
     event.preventDefault();
     onSubmit({
       name,
-      occupation,
+      occupation, 
       ssn,
       dateOfBirth,
       gender
